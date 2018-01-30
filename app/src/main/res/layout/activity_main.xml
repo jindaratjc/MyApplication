@@ -7,12 +7,12 @@
     tools:context="com.project.app.myapplication.MainActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/txtName"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="14dp"
-        android:layout_toStartOf="@+id/button10"
+        android:layout_toStartOf="@+id/btnSearch"
         android:ems="10"
         android:hint="ค้นหาสถานที่"
         android:inputType="textPersonName"
@@ -20,11 +20,11 @@
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/editText"
+        android:layout_alignTop="@+id/txtName"
         android:text="ค้นหา" />
 
     <Button
@@ -33,7 +33,7 @@
         android:layout_height="100dp"
 
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/txtName"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="72dp"
         android:background="@drawable/book_icon"
