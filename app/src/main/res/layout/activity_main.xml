@@ -110,9 +110,9 @@
         android:id="@+id/button12"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_alignBaseline="@+id/button9"
+        android:layout_alignBottom="@+id/button9"
         android:layout_alignStart="@+id/button8"
-        android:layout_alignTop="@+id/button9"
-        android:layout_marginTop="30dp"
         android:background="@drawable/campus_icon" />
 
     <TextView
