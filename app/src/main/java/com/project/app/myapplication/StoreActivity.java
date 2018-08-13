@@ -154,9 +154,9 @@ public class StoreActivity extends Activity {
             txtName.setPadding(50, 0, 0, 0);
             txtName.setText(" " + MyArr.get(position).get("substore_name"));
 
-            TextView txtFloor = (TextView) convertView.findViewById(R.id.ColFloor);
-            txtFloor.setPadding(50, 0, 0, 0);
-            txtFloor.setText(" " + MyArr.get(position).get("point_name"));
+//            TextView txtFloor = (TextView) convertView.findViewById(R.id.ColFloor);
+//            txtFloor.setPadding(50, 0, 0, 0);
+//            txtFloor.setText(" " + MyArr.get(position).get("point_name"));
 
 
             return convertView;

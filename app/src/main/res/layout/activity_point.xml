@@ -2,20 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnSearchStartPoint"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/txtEndPoint"
-        android:layout_alignParentEnd="true"
-        android:background="@android:drawable/ic_search_category_default" />
-
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/txtStartPoint"
-        android:layout_width="wrap_content"
+        android:layout_width="248dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_toEndOf="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="67dp"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -23,11 +16,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="55dp"
-        android:text="ระบุตำแหน่งที่คุณอยู่ : " />
+        android:layout_alignBaseline="@+id/txtStartPoint"
+        android:layout_toStartOf="@+id/txtStartPoint"
+        android:text="ระบุตำแหน่งที่คุณอยู่ : "
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -35,25 +27,18 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView2"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="106dp"
-        android:text="ระบุร้านที่คุณจะไป : " />
+        android:layout_marginTop="138dp"
+        android:text="ระบุร้านที่คุณจะไป : "
+        android:textSize="16dp" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/txtEndPoint"
-        android:layout_width="wrap_content"
+        android:layout_width="246dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignParentEnd="true"
         android:ems="10"
         android:inputType="textPersonName" />
-
-    <Button
-        android:id="@+id/btnSearchEndPoint"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_alignParentEnd="true"
-        android:background="@android:drawable/ic_search_category_default" />
 
     <Button
         android:id="@+id/btnSearch"
@@ -61,6 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="171dp"
+        android:layout_marginTop="212dp"
         android:text="ค้นหา" />
 </RelativeLayout>

@@ -73,6 +73,8 @@ public class SubStoreActivity extends Activity {
             int resID = res.getIdentifier(mDrawableName, "drawable", getPackageName());
             //Drawable drawable = res.getDrawable(resID);
             imgSubStore.setBackgroundResource(resID);
+/*            imgSubStore.setWidth(500);
+            imgSubStore.setWidth(400);*/
         }
         //top_left, top_right, bottom_left, bottom_right;
         if (!"".equals(top_left) && top_left != null) {
