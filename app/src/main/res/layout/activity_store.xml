@@ -18,7 +18,7 @@
         android:textSize="20dp" />
 
     <ListView
-        android:id="@+id/listSubStore"
+        android:id="@+id/listStore"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:layout_alignParentStart="true"

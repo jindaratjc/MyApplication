@@ -22,6 +22,7 @@ public class DatabaseActivity extends SQLiteOpenHelper {
     private static String TABLE_STORE = "store";
     private static String TABLE_SUB_STORE = "substore";
     private static String TABLE_SUBPOINT = "subpoint";
+    private static String TABLE_CATEGORY_STORE = "category_store";
     private static Integer BUFFER_SIZE = 128;
     private SQLiteDatabase myDataBase;
     private final Context context;
@@ -212,7 +213,7 @@ public class DatabaseActivity extends SQLiteOpenHelper {
             HashMap<String, String> map;
             SQLiteDatabase db;
             db = this.getReadableDatabase(); // Read Data
-            String strSQL = "SELECT store_id, store_name FROM "
+            String strSQL = "SELECT store_id, store_name, store_image FROM "
                     + TABLE_STORE + " WHERE store_name LIKE '%" + name + "%' ";
             Cursor cursor = db.rawQuery(strSQL, null);
             if (cursor != null) {
@@ -221,6 +222,7 @@ public class DatabaseActivity extends SQLiteOpenHelper {
                         map = new HashMap<String, String>();
                         map.put("store_id", cursor.getString(0));
                         map.put("store_name", cursor.getString(1));
+                        map.put("store_image", cursor.getString(2));
                         MyArrList.add(map);
                     } while (cursor.moveToNext());
                 }
@@ -241,8 +243,21 @@ public class DatabaseActivity extends SQLiteOpenHelper {
             HashMap<String, String> map;
             SQLiteDatabase db;
             db = this.getReadableDatabase(); // Read Data
-            String strSQL = "SELECT substore_id, substore_name, subpoint_id, store_id, substore_image FROM "
-                    + TABLE_SUB_STORE + " WHERE store_id = " + store_id + " ";
+            String strSQL = "SELECT " +
+                    "ss.substore_id, " +
+                    "ss.substore_name, " +
+                    "ss.subpoint_id, " +
+                    "ss.store_id, " +
+                    "ss.substore_image," +
+                    "ss.top_left," +
+                    "ss.top_right," +
+                    "ss.bottom_left," +
+                    "ss.bottom_right, " +
+                    "p.point_name " +
+                    "FROM "
+                    + TABLE_SUB_STORE + " ss INNER JOIN " + TABLE_SUBPOINT + " sp ON ss.subpoint_id = sp.id inner join "
+                    + TABLE_POINT + " p ON sp.point_id = p.id"
+                    +" WHERE ss.store_id = " + store_id + " ";
             Cursor cursor = db.rawQuery(strSQL, null);
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
@@ -251,8 +266,43 @@ public class DatabaseActivity extends SQLiteOpenHelper {
                         map.put("substore_id", cursor.getString(0));
                         map.put("substore_name", cursor.getString(1));
                         map.put("subpoint_id", cursor.getString(2));
-                        map.put("subpoint_id", cursor.getString(3));
+                        map.put("store_id", cursor.getString(3));
                         map.put("substore_image", cursor.getString(4));
+                        map.put("top_left", cursor.getString(5));
+                        map.put("top_right", cursor.getString(6));
+                        map.put("bottom_left", cursor.getString(7));
+                        map.put("bottom_right", cursor.getString(8));
+                        map.put("point_name", cursor.getString(9));
+                        MyArrList.add(map);
+                    } while (cursor.moveToNext());
+                }
+            }
+            cursor.close();
+            db.close();
+            return MyArrList;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public ArrayList<HashMap<String,String>> GetStoreByCategoryId(String category_store_id) {
+        try {
+            ArrayList<HashMap<String, String>> MyArrList = new ArrayList<HashMap<String, String>>();
+            HashMap<String, String> map;
+            SQLiteDatabase db;
+            db = this.getReadableDatabase(); // Read Data
+            String strSQL = "SELECT store_id, store_name, store_image  FROM "
+                    + TABLE_STORE + " WHERE category_store_id = " + category_store_id + " ";
+            Cursor cursor = db.rawQuery(strSQL, null);
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    do {
+                        map = new HashMap<String, String>();
+                        map.put("store_id", cursor.getString(0));
+                        map.put("store_name", cursor.getString(1));
+                        map.put("store_image", cursor.getString(2));
                         MyArrList.add(map);
                     } while (cursor.moveToNext());
                 }

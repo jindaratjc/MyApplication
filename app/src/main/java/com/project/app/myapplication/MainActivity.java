@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseActivity myDb = new DatabaseActivity(this);
     ArrayList<HashMap<String, String>> MyArrList = new ArrayList<HashMap<String, String>>();
     private EditText txtName;
-    private Button btnSearch;
+    private Button btnSearch, btnBook, btnFood, btnBeauty, btnDigital,
+            btnFashion, btnToilet, btnBanking, btnService, btnCampus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +35,102 @@ public class MainActivity extends AppCompatActivity {
 
         txtName = (EditText) findViewById(R.id.txtName);
         btnSearch = (Button) findViewById(R.id.btnSearch);
+        btnBook = (Button) findViewById(R.id.btnBook);
+        btnFood = (Button) findViewById(R.id.btnFood);
+        btnBeauty = (Button) findViewById(R.id.btnBeauty);
+        btnDigital = (Button) findViewById(R.id.btnDigital);
+        btnFashion = (Button) findViewById(R.id.btnFashion);
+        btnToilet = (Button) findViewById(R.id.btnToilet);
+        btnBanking = (Button) findViewById(R.id.btnBanking);
+        btnService = (Button) findViewById(R.id.btnService);
+        btnCampus = (Button) findViewById(R.id.btnCampus);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MyArrList = myDb.GetStoreByName(txtName.getText().toString().trim());
                 DialogStore(MyArrList);
+            }
+        });
+        btnBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), CategoryStoreActivity.class);
+                intent.putExtra("category_store_name", "BOOK");
+                intent.putExtra("category_store_id", "1");
+                startActivity(intent);
+            }
+        });
+        btnFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), CategoryStoreActivity.class);
+                intent.putExtra("category_store_name", "FOOD");
+                intent.putExtra("category_store_id", "2");
+                startActivity(intent);
+            }
+        });
+        btnBeauty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), CategoryStoreActivity.class);
+                intent.putExtra("category_store_name", "BEAUTY");
+                intent.putExtra("category_store_id", "3");
+                startActivity(intent);
+            }
+        });
+        btnDigital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), CategoryStoreActivity.class);
+                intent.putExtra("category_store_name", "DIGITAL");
+                intent.putExtra("category_store_id", "4");
+                startActivity(intent);
+            }
+        });
+        btnFashion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), CategoryStoreActivity.class);
+                intent.putExtra("category_store_name", "FASHION");
+                intent.putExtra("category_store_id", "5");
+                startActivity(intent);
+            }
+        });
+        btnToilet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), CategoryStoreActivity.class);
+                intent.putExtra("category_store_name", "TOTEL");
+                intent.putExtra("category_store_id", "6");
+                startActivity(intent);
+            }
+        });
+        btnBanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), CategoryStoreActivity.class);
+                intent.putExtra("category_store_name", "BANKING");
+                intent.putExtra("category_store_id", "7");
+                startActivity(intent);
+            }
+        });
+        btnService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), CategoryStoreActivity.class);
+                intent.putExtra("category_store_name", "SERVICE");
+                intent.putExtra("category_store_id", "8");
+                startActivity(intent);
+            }
+        });
+        btnCampus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), CategoryStoreActivity.class);
+                intent.putExtra("category_store_name", "CAMPUS");
+                intent.putExtra("category_store_id", "9");
+                startActivity(intent);
             }
         });
 

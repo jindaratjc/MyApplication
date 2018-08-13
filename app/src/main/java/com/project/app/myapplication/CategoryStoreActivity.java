@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -25,7 +24,7 @@ import java.util.HashMap;
  * Created by user on 30/1/2561.
  */
 
-public class StoreActivity extends Activity {
+public class CategoryStoreActivity extends Activity {
 
 
     private DatabaseActivity myDb = new DatabaseActivity(this);
@@ -34,7 +33,7 @@ public class StoreActivity extends Activity {
     TextView txtStoreName;
     ListView listStore;
     Button btnBack, btnHome;
-    String store_id, store_name, store_image;
+    String category_store_id, category_store_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +43,8 @@ public class StoreActivity extends Activity {
         Bundle extras = getIntent().getExtras();
         // เช็คว่ามีค่าที่ส่งมาจากหน้าอื่นหรือไม่ถ้ามีจะไม่เท่ากับ null
         if (extras != null) {
-            store_id = extras.getString("store_id");
-            store_name = extras.getString("store_name");
-            store_image = extras.getString("store_image");
+            category_store_id = extras.getString("category_store_id");
+            category_store_name = extras.getString("category_store_name");
         }
 
         txtStoreName = (TextView) findViewById(R.id.txtStoreName);
@@ -54,30 +52,24 @@ public class StoreActivity extends Activity {
         btnBack = (Button) findViewById(R.id.btnBack);
         btnHome = (Button) findViewById(R.id.btnHome);
 
-        txtStoreName.setText("ชื่อร้านค้า : " + store_name);
+        txtStoreName.setText("ชื่อหมวดหมู่ : " + category_store_name);
 
-        MyArrList = myDb.GetSubStoreById(store_id);
+        MyArrList = myDb.GetStoreByCategoryId(category_store_id);
 
 
-        SimpleAdapter sAdap;
+       /* SimpleAdapter sAdap;
         sAdap = new SimpleAdapter(getBaseContext(), MyArrList, R.layout.column_store,
-                new String[]{"substore_name"}, new int[]{R.id.ColName});
-        //listStore.setAdapter(sAdap);
-        listStore.setAdapter(new ImageAdapter(this, MyArrList));
+                new String[]{"store_name"}, new int[]{R.id.ColName});
+        listSubStore.setAdapter(sAdap);*/
+        listStore.setAdapter(new ImageAdapter(this,MyArrList));
 
         listStore.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //top_left, top_right, bottom_left, bottom_right;
-                Intent intent = new Intent(getBaseContext(), SubStoreActivity.class);
-                intent.putExtra("substore_name", MyArrList.get(i).get("substore_name"));
-                intent.putExtra("substore_id", MyArrList.get(i).get("substore_id"));
-                intent.putExtra("substore_image", MyArrList.get(i).get("substore_image"));
-                intent.putExtra("top_left", MyArrList.get(i).get("top_left"));
-                intent.putExtra("top_right", MyArrList.get(i).get("top_right"));
-                intent.putExtra("bottom_left", MyArrList.get(i).get("bottom_left"));
-                intent.putExtra("bottom_right", MyArrList.get(i).get("bottom_right"));
-               // intent.putExtra("store_image", store_image);
+                Intent intent = new Intent(getBaseContext(), StoreActivity.class);
+                intent.putExtra("store_name", MyArrList.get(i).get("store_name"));
+                intent.putExtra("store_id", MyArrList.get(i).get("store_id"));
+                intent.putExtra("store_image", MyArrList.get(i).get("store_image"));
                 startActivity(intent);
             }
         });
@@ -99,11 +91,13 @@ public class StoreActivity extends Activity {
 
     }
 
-    public class ImageAdapter extends BaseAdapter {
+    public class ImageAdapter extends BaseAdapter
+    {
         private Context context;
         private ArrayList<HashMap<String, String>> MyArr = new ArrayList<HashMap<String, String>>();
 
-        public ImageAdapter(Context c, ArrayList<HashMap<String, String>> list) {
+        public ImageAdapter(Context c, ArrayList<HashMap<String, String>> list)
+        {
             // TODO Auto-generated method stub
             context = c;
             MyArr = list;
@@ -123,7 +117,6 @@ public class StoreActivity extends Activity {
             // TODO Auto-generated method stub
             return position;
         }
-
         public View getView(int position, View convertView, ViewGroup parent) {
             // TODO Auto-generated method stub
 
@@ -139,7 +132,7 @@ public class StoreActivity extends Activity {
             imageView.getLayoutParams().height = 100;
             imageView.getLayoutParams().width = 100;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            int ResID = context.getResources().getIdentifier(store_image, "drawable", context.getPackageName());
+            int ResID = context.getResources().getIdentifier(MyArr.get(position).get("store_image"), "drawable", context.getPackageName());
             imageView.setImageResource(ResID);
 
             // ColPosition
@@ -152,16 +145,13 @@ public class StoreActivity extends Activity {
             // Colname
             TextView txtName = (TextView) convertView.findViewById(R.id.ColName);
             txtName.setPadding(50, 0, 0, 0);
-            txtName.setText(" " + MyArr.get(position).get("substore_name"));
-
-            TextView txtFloor = (TextView) convertView.findViewById(R.id.ColFloor);
-            txtFloor.setPadding(50, 0, 0, 0);
-            txtFloor.setText(" " + MyArr.get(position).get("point_name"));
+            txtName.setText(" " + MyArr.get(position).get("store_name"));
 
 
             return convertView;
 
         }
+
     }
 
 }

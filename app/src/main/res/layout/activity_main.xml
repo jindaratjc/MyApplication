@@ -28,7 +28,7 @@
         android:text="ค้นหา" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnBook"
         android:layout_width="100dp"
         android:layout_height="100dp"
 
@@ -40,88 +40,88 @@
         android:text="" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnDigital"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignStart="@+id/button1"
-        android:layout_below="@+id/button1"
+        android:layout_alignStart="@+id/btnBook"
+        android:layout_below="@+id/btnBook"
         android:layout_marginTop="52dp"
 
         android:background="@drawable/digital_icon"
         android:text="" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnBanking"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignStart="@+id/button2"
-        android:layout_below="@+id/button2"
+        android:layout_alignStart="@+id/btnDigital"
+        android:layout_below="@+id/btnDigital"
         android:layout_marginTop="54dp"
 
         android:background="@drawable/banking_icon"
         android:text="" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnFood"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignTop="@+id/button1"
+        android:layout_alignTop="@+id/btnBook"
         android:layout_centerHorizontal="true"
 
         android:background="@drawable/food_icon"
         android:text="" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnBeauty"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/button4"
+        android:layout_alignTop="@+id/btnFood"
         android:layout_marginEnd="20dp"
 
         android:background="@drawable/beauty_icon"
         android:text="" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnFashion"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignStart="@+id/button4"
-        android:layout_alignTop="@+id/button2"
+        android:layout_alignStart="@+id/btnFood"
+        android:layout_alignTop="@+id/btnDigital"
         android:background="@drawable/fashion_icon" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnToilet"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignBaseline="@+id/button7"
-        android:layout_alignBottom="@+id/button7"
-        android:layout_alignStart="@+id/button6"
+        android:layout_alignBaseline="@+id/btnFashion"
+        android:layout_alignBottom="@+id/btnFashion"
+        android:layout_alignStart="@+id/btnBeauty"
         android:background="@drawable/toilet_icon" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnService"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignStart="@+id/button7"
-        android:layout_alignTop="@+id/button3"
+        android:layout_alignStart="@+id/btnFashion"
+        android:layout_alignTop="@+id/btnBanking"
         android:background="@drawable/service_icon" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/btnCampus"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignBaseline="@+id/button9"
-        android:layout_alignBottom="@+id/button9"
-        android:layout_alignStart="@+id/button8"
+        android:layout_alignBaseline="@+id/btnService"
+        android:layout_alignBottom="@+id/btnService"
+        android:layout_alignStart="@+id/btnToilet"
         android:background="@drawable/campus_icon" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button1"
-        android:layout_below="@+id/button1"
+        android:layout_alignEnd="@+id/btnBook"
+        android:layout_below="@+id/btnBook"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="10dp"
         android:text="BOOK"
@@ -139,7 +139,7 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button6"
+        android:layout_alignEnd="@+id/btnBeauty"
         android:layout_alignTop="@+id/textView11"
         android:layout_marginEnd="16dp"
         android:text="BEAUTY" />
@@ -148,8 +148,8 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button2"
-        android:layout_below="@+id/button2"
+        android:layout_alignEnd="@+id/btnDigital"
+        android:layout_below="@+id/btnDigital"
         android:layout_marginEnd="21dp"
         android:layout_marginTop="10dp"
         android:text="DIGITAL" />
@@ -176,7 +176,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView13"
-        android:layout_below="@+id/button12"
+        android:layout_below="@+id/btnCampus"
         android:layout_marginTop="7dp"
         android:text="BANKING" />
 
